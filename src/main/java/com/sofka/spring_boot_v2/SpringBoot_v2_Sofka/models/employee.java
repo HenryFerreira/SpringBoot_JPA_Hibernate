@@ -10,8 +10,7 @@ public class employee {
     //----------------------------------------------------------------------------------------------------------------//
     //Atributos
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)/*--> Indica que el valor se genera de forma automatica sin
-     importar el gestor de Base de Datos*/
+    @GeneratedValue(strategy = GenerationType.AUTO)/*--> Indica que el valor se genera de forma automatica sin importar el gestor de Base de Datos*/
     private Long id;
 
     @Column(length = 25, nullable = false)//--> Indica que es una columna con longitud de 25 caracteres y no nula
@@ -40,6 +39,12 @@ public class employee {
     //Constructores
     public employee() {//Constructor por Defecto
 
+    }
+
+    public employee(String firstName, String lastName, String employeeId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employeeId = employeeId;
     }
 
     public employee(String firstName, String lastName, String employeeId, role _role) {
