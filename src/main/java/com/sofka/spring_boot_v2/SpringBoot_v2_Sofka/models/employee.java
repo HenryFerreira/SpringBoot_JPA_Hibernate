@@ -1,6 +1,8 @@
 package com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity//--> Indica que está clase va a ser una entidad, o sea, un Tabla en SQL
@@ -21,6 +23,17 @@ public class employee {
     @Column(length = 10, nullable = false, unique = true)/*--> Indica que es una columna con longitud de 10 caracteres,
      no nula y unica*/
     private String employeeId;
+
+    @ManyToOne(optional = false)//--> De muchos a uno
+    @JoinColumn(name = "id_role")//--> Nombre de la columna
+    private role _role;//--> va a ser el atributo foraneo en la tabla
+
+    @ManyToMany(cascade = CascadeType.ALL)//--> Tipo cascada
+    //Se crea una tabla con dos atributos 'employee_id' y 'proyect_id' además esta ultima es clave foranea de proyect
+    @JoinTable(name = "employee_proyect",
+                joinColumns = {@JoinColumn(name = "employee_id")},
+                inverseJoinColumns = {@JoinColumn(name = "proyect_id")})
+    private List<proyect> proyects = new ArrayList<proyect>();
     //----------------------------------------------------------------------------------------------------------------//
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -96,6 +109,11 @@ public class employee {
                 '}';
     }
     //----------------------------------------------------------------------------------------------------------------//
+
+    //----------------------------------------------------------------------------------------------------------------//
+    //Relaciones de Tablas
+    //----------------------------------------------------------------------------------------------------------------//
+
 
 }
 
