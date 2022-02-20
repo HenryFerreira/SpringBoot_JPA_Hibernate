@@ -5,7 +5,7 @@ import com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.models.employee;
 import com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.models.project;
 import com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.models.role;
 import com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.repositories.employeeRepository;
-import com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.repositories.proyectRepository;
+import com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.repositories.projectRepository;
 import com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.repositories.roleRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class employeeJpaRepositoryTest {
     private roleRepository repoRole;
 
     @Autowired
-    private proyectRepository repoProj;
+    private projectRepository repoProj;
 
     @Test
     public void saveEmployee() {

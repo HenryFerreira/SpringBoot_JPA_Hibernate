@@ -23,11 +23,12 @@ public class employee {
      no nula y unica*/
     private String employeeId;
 
+
     @ManyToOne(optional = false)//--> De muchos a uno
     @JoinColumn(name = "id_role")//--> Nombre de la columna
     private role _role;//--> va a ser el atributo foraneo en la tabla
 
-    @ManyToMany(cascade = CascadeType.ALL)//--> Tipo cascada
+    @ManyToMany(cascade = CascadeType.ALL)//--> De muchos a muchos de Tipo cascada
     //Se crea una tabla con dos atributos 'employee_id' y 'proyect_id' además esta ultima es clave foranea de proyect
     @JoinTable(name = "employee_proyect",
                 joinColumns = {@JoinColumn(name = "employee_id")},
@@ -131,10 +132,6 @@ public class employee {
                 ", employeeId='" + employeeId + '\'' +
                 '}';
     }
-    //----------------------------------------------------------------------------------------------------------------//
-
-    //----------------------------------------------------------------------------------------------------------------//
-    //Relaciones de Tablas
     //----------------------------------------------------------------------------------------------------------------//
 
 
