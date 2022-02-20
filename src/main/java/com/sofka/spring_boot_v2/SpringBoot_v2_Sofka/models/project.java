@@ -1,12 +1,10 @@
 package com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
-public class proyect {
+@Entity
+public class project {
     //----------------------------------------------------------------------------------------------------------------//
     //Atributos
     @Id
@@ -20,10 +18,10 @@ public class proyect {
 
     //----------------------------------------------------------------------------------------------------------------//
     //Constructores
-    public proyect() {
+    public project() {
     }
 
-    public proyect(String name) {
+    public project(String name) {
         this.name = name;
     }
     //----------------------------------------------------------------------------------------------------------------//
@@ -55,7 +53,7 @@ public class proyect {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        proyect proyect = (proyect) o;
+        project proyect = (project) o;
         return Objects.equals(id, proyect.id) && Objects.equals(name, proyect.name);
     }
 

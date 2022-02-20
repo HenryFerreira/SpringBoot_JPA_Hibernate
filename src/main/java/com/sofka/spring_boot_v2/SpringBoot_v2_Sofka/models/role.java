@@ -1,11 +1,9 @@
 package com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class role {
     //----------------------------------------------------------------------------------------------------------------//
     //Atributos

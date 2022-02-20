@@ -33,7 +33,7 @@ public class employee {
     @JoinTable(name = "employee_proyect",
                 joinColumns = {@JoinColumn(name = "employee_id")},
                 inverseJoinColumns = {@JoinColumn(name = "proyect_id")})
-    private List<proyect> proyects = new ArrayList<proyect>();
+    private List<project> projects = new ArrayList<project>();
     //----------------------------------------------------------------------------------------------------------------//
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -42,10 +42,11 @@ public class employee {
 
     }
 
-    public employee(String firstName, String lastName, String employeeId) {
+    public employee(String firstName, String lastName, String employeeId, role _role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeId = employeeId;
+        this._role = _role;
     }
     //----------------------------------------------------------------------------------------------------------------//
 
@@ -82,6 +83,23 @@ public class employee {
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
+
+    public role get_role() {
+        return _role;
+    }
+
+    public void set_role(role _role) {
+        this._role = _role;
+    }
+
+    public List<project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<project> projects) {
+        this.projects = projects;
+    }
+
     //----------------------------------------------------------------------------------------------------------------//
 
     //----------------------------------------------------------------------------------------------------------------//
