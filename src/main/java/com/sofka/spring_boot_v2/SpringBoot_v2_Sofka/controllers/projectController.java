@@ -11,30 +11,30 @@ import java.util.ArrayList;
 @RestController//--> Indica que es un controlador
 @RequestMapping("/project")//Indica en que direccion del servidor se activan los metodos de esta clase
 public class projectController {
-    @Autowired
+    @Autowired//Instancia de 'projectService'
     projectService proService;
 
-    @GetMapping()
+    @GetMapping()//Obtener todos los proyectos
     public ArrayList<project> getAllProjects() {
         return this.proService.getAllProjects();
     }
 
-    @GetMapping("/search/id/{id}")
+    @GetMapping("/search/id/{id}")//Obtener proyecto por su ID
     public project getProjectById(@PathVariable("id") Long id){
         return this.proService.getProjectById(id);
     }
 
-    @PostMapping()
+    @PostMapping()//Agregar un nuevo proyecto
     public project addNewProject(@RequestBody project newProject) {
         return this.proService.addNewProject(newProject);
     }
 
-    @PutMapping("/update/id/{id}")
+    @PutMapping("/update/id/{id}")//Actualzar un proyecto por su ID
     public ResponseEntity<project> updateProjectById(@PathVariable("id") Long id, @RequestBody project projectData){
         return this.proService.updateProjectById(id,projectData);
     }
 
-    @DeleteMapping("/delete/id/{id}")
+    @DeleteMapping("/delete/id/{id}")//Eliminar un proyecto por su ID
     public String deleteProjectById(@PathVariable("id") Long id){
         if(this.proService.deleteProjectById(id)){//Si devuelve true
             return "Se elimino el Proyecto con ID: [" + id + "]";

@@ -11,31 +11,31 @@ import java.util.ArrayList;
 @RestController//--> Indica que es un controlador
 @RequestMapping("/role")//Indica en que direccion del servidor se activan los metodos de esta clase
 public class roleController {
-    @Autowired
+    @Autowired//Instancia de 'roleService'
     roleService rolService;
 
-    @GetMapping()
+    @GetMapping()//Obtener todos los roles
     public ArrayList<role> getAllRoles(){
         return this.rolService.getAllRoles();
     }
 
-    @GetMapping("/search/id/{id}")
+    @GetMapping("/search/id/{id}")//Obtener rol por su ID
     public role getRoleById(@PathVariable("id")Long id){
         return this.rolService.getRoleById(id);
     }
 
-    @PostMapping()
+    @PostMapping()//Agregar un nuevo rol
     public role addNewRole(@RequestBody role newRole){
         System.out.println(newRole);
         return this.rolService.addNewRole(newRole);
     }
 
-    @PutMapping("/update/id/{id}")
+    @PutMapping("/update/id/{id}")//Actualizar rol por ID
     public ResponseEntity<role> updateRoleById(@PathVariable("id")Long id, @RequestBody role roleData){
         return this.rolService.updateRoleById(id, roleData);
     }
 
-    @DeleteMapping("/delete/id/{id}")
+    @DeleteMapping("/delete/id/{id}")//Eliminar rol por ID
     public String deleteRoleById(@PathVariable("id")Long id){
         if(this.rolService.deleteRoleById(id)){//Si devuelve true
             return "Se elimino el Rol con ID: [" + id + "]";

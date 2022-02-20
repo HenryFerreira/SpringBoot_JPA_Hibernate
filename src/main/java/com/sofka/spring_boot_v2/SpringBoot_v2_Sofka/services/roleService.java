@@ -13,21 +13,25 @@ import java.util.Optional;
 
 @Service
 public class roleService {
-    @Autowired
+    @Autowired//Instancia de 'roleRepository'
     roleRepository rolRepository;
 
-    public ArrayList<role> getAllRoles(){//Obtener todos los roles
+    //Obtener todos los roles
+    public ArrayList<role> getAllRoles() {//Obtener todos los roles
         return (ArrayList<role>) rolRepository.findAll();
     }
 
-    public role getRoleById(Long id){
+    //Obtener rol por su ID
+    public role getRoleById(Long id) {
         return this.rolRepository.getById(id);
     }
 
-    public role addNewRole(role newRole){//Agregar un nuevo rol
+    //Agregar un nuevo rol
+    public role addNewRole(role newRole) {//Agregar un nuevo rol
         return rolRepository.save(newRole);
     }
 
+    //Actualizar rol por ID
     public ResponseEntity<role> updateRoleById(Long id, role roleData) {
         Optional<role> updateRole = this.rolRepository.findById(id);
 
@@ -41,7 +45,8 @@ public class roleService {
         }
     }
 
-    public boolean deleteRoleById(Long id){
+    //Eliminar rol por ID
+    public boolean deleteRoleById(Long id) {
         try {
             this.rolRepository.deleteById(id);
             return true;

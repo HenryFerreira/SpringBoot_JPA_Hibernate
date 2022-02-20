@@ -13,21 +13,25 @@ import java.util.Optional;
 
 @Service
 public class projectService {
-    @Autowired
+    @Autowired//Instancia de 'projectRepository'
     projectRepository proRepository;
 
+    //Obtener todos los proyectos
     public ArrayList<project> getAllProjects() {
         return (ArrayList<project>) this.proRepository.findAll();
     }
 
-    public project getProjectById(Long id){
+    //Obtener proyecto por su ID
+    public project getProjectById(Long id) {
         return this.proRepository.getById(id);
     }
 
+    //Agregar un nuevo proyecto
     public project addNewProject(project newProject) {
         return this.proRepository.save(newProject);
     }
 
+    //Actualzar un proyecto por su ID
     public ResponseEntity<project> updateProjectById(Long id, project projectData) {
         Optional<project> updateProject = this.proRepository.findById(id);
 
@@ -41,7 +45,8 @@ public class projectService {
         }
     }
 
-    public boolean deleteProjectById(Long id){
+    //Eliminar un proyecto por su ID
+    public boolean deleteProjectById(Long id) {
         try {
             this.proRepository.deleteById(id);
             return true;

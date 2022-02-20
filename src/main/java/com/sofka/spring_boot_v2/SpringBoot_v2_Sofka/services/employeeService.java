@@ -14,25 +14,30 @@ import java.util.Optional;
 //2. Creación de los servicios de un CRUD. ( Crear, Eliminar, Actualizar, Obtener todos y Obtener por ID). 30%
 @Service
 public class employeeService {
-    @Autowired
+    @Autowired//Instancia de 'employeeRepository'
     employeeRepository empRepository;
 
+    //Obtener todos los empleados
     public Optional<employee> getEmployeeById(Long id){
         return this.empRepository.findById(id);
     }
 
+    //Obtener empleado por ID
     public List<employee> getEmployeeByName(String name){
         return this.empRepository.findByFirstName(name);
     }
 
+    //Obtener todos los empleados por el Nombre
     public ArrayList<employee> getAllEmployee() {//Obtener todos los empleados
         return (ArrayList<employee>) empRepository.findAll();
     }
 
+    //Agregar un nuevo empleado
     public employee addNewEmployee(employee newEmployee) {//Agregar un nuevo empleado
         return empRepository.save(newEmployee);
     }
 
+    //Actualizar un empleado por su ID
     public ResponseEntity<employee> updateEmployeeById(Long id, employee employeeData) {
         Optional<employee> updatedEmployee = this.empRepository.findById(id);
 
@@ -50,6 +55,7 @@ public class employeeService {
         }
     }
 
+    //Eliminar un empleado por su ID
     public boolean deleteEmployeeById(Long id) {
         try {
             this.empRepository.deleteById(id);
