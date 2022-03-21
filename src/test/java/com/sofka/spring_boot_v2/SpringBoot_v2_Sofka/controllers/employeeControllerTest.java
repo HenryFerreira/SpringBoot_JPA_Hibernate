@@ -112,7 +112,6 @@ class employeeControllerTest {
 
         doReturn(ResponseEntity.of(Optional.of(employee.class))).when(service).updateEmployeeById(empleado.getId(), nuevaInformacion);
 
-        //Post maping no se ejecuta
         URI uri = new URI("/employee/update/id/1");
         this.mockMvc
                 .perform(MockMvcRequestBuilders.put(uri)
@@ -132,7 +131,6 @@ class employeeControllerTest {
         employee nuevaInformacion = new employee("Haff", "Soul", "empl123", dev);
         nuevaInformacion.setId(1L);
         doReturn(null).when(service).updateEmployeeById(empleado.getId(), nuevaInformacion);
-        //Post maping no se ejecuta
 
         URI uri = new URI("/usuario");
         mockMvc.perform(MockMvcRequestBuilders.put(uri)
