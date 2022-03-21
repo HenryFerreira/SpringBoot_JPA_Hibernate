@@ -1,4 +1,5 @@
 package com.sofka.spring_boot_v2.SpringBoot_v2_Sofka;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.sofka.spring_boot_v2.SpringBoot_v2_Sofka.models.employee;
@@ -60,8 +61,10 @@ public class employeeJpaRepositoryTest {
 
         employee empl124 = repoEmpl.findByEmployeeId("empl124");
         assertEquals("Claire", empl124.getFirstName());
-        assertEquals(2, repoEmpl.findAll().size());
+        assertEquals(4, repoEmpl.findAll().size());
         assertEquals(admin, empl124.get_role());
 
     }
+
+
 }
